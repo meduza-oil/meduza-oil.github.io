@@ -41,7 +41,7 @@
       <h2 class="clients">Our lovliest reviews</h2>
       <div class="range-slider">
         <div class="slider-track">
-          <!-- Repeat the logos twice for smooth infinite scrolling -->
+          <!-- First set of images -->
           <div class="range-item"><img src="images/1.jpeg"/></div>
           <div class="range-item"><img src="images/5.jpeg"/></div>
           <div class="range-item"><img src="images/3.jpeg"/></div>
@@ -50,18 +50,8 @@
           <div class="range-item"><img src="images/11.jpg"/></div>
           <div class="range-item"><img src="images/12.jpg"/></div>
           <div class="range-item"><img src="images/13.jpg"/></div>
-
-
-          <div class="range-item"><img src="images/1.jpeg"/></div>
-          <div class="range-item"><img src="images/5.jpeg"/></div>
-          <div class="range-item"><img src="images/3.jpeg"/></div>
-          <div class="range-item"><img src="images/4.jpeg"/></div>
-          <div class="range-item"><img src="images/2.jpeg"/></div>
-          <div class="range-item"><img src="images/11.jpg"/></div>
-          <div class="range-item"><img src="images/12.jpg"/></div>
-          <div class="range-item"><img src="images/13.jpg"/></div>
-
-
+          
+          <!-- Duplicate the same images to create a seamless loop -->
           <div class="range-item"><img src="images/1.jpeg"/></div>
           <div class="range-item"><img src="images/5.jpeg"/></div>
           <div class="range-item"><img src="images/3.jpeg"/></div>
@@ -71,7 +61,7 @@
           <div class="range-item"><img src="images/12.jpg"/></div>
           <div class="range-item"><img src="images/13.jpg"/></div>
         </div>
-      </div>
+      </div>      
     </section>
     <div class="product-section">
       <div class="product-wrapper">
@@ -182,6 +172,44 @@
     </div>
   </footer>
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.slider-track');
+  const items = document.querySelectorAll('.range-item');
+  
+  // Clone all items and append them to create a seamless loop
+  items.forEach(item => {
+    const clone = item.cloneNode(true);
+    slider.appendChild(clone);
+  });
+  
+  // Calculate the width of a single item including gap
+  const itemWidth = items[0].offsetWidth;
+  const gap = 30; // Same as in CSS
+  const totalItemWidth = itemWidth + gap;
+  
+  // Calculate the width of the first set of items
+  const resetPosition = items.length * totalItemWidth;
+  
+  let position = 0;
+  const speed = 1.5; // Pixels per frame - adjust for speed
+  
+  function moveSlider() {
+    position -= speed;
+    
+    // When we've moved the width of the first set, reset position
+    if (position <= -resetPosition) {
+      position = 0;
+    }
+    
+    slider.style.left = position + 'px';
+    requestAnimationFrame(moveSlider);
+  }
+  
+  // Start the animation
+  moveSlider();
+});
+
+
     window.onload = function() {
       window.scrollTo(0, 0);  // Scrolls the page to the top
     };
