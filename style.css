@@ -10,6 +10,9 @@
   font-weight: bold;
   color: #004734;
   font-size: 22px;
+  display: flex;
+  align-items: center;
+
 }
 img{
   width: 90px;
@@ -29,6 +32,7 @@ img{
   color: #d4af37bb;
   font-size: 14px;
   font-weight: 500;
+  font-size: 16px;
 }
 .meduza-title {
   color: #d4af3788 !important;
@@ -85,7 +89,6 @@ img{
   color: #ffffffa2 !important; /* Dark color for text to ensure readability */
   font-size: 1.0rem;
   padding: 20px; /* Adds space inside the paragraph */
-  border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
   font-size: 18px; /* Adjust text size */
   line-height: 1.6; /* Increases line height for better readability */
@@ -229,7 +232,6 @@ body {
 }
 /* About Us Section */
 .about-us {
-  padding: 60px 40px;
   background-color: #f9f9f9;
   color: #333;
   text-align: center; /* Center all text */
@@ -334,7 +336,6 @@ body {
 .cta-button:hover {
   background-color: #2a7f62;
 }.about-us {
-  padding: 60px 40px;
   background-color: #000; /* Match background */
   text-align: center;
 }
@@ -816,3 +817,17 @@ p {
   }
 }
  
+#link1 {
+  color: #000;
+  background-color: #d4af37bb;
+  padding: 5px 10px;
+  border-radius: 100px;
+}
+
+.logo h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d4af37bb;
+  margin-left: 10px;
+
+}
